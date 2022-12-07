@@ -2,23 +2,23 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
 
    
-    <mat-card fxFlex="25">
+    <mat-card fxFlex="25" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
         <mat-toolbar  color="primary" style="justify-content:center; ">REGISTER PAGE</mat-toolbar>
-        <form fxLayoutAlign="strecth" fxLayout="column" class="login-form">
+        <form fxLayoutAlign="strecth" fxLayout="column" class="login-form" #registerFrom="ngForm">
 
             <mat-form-field  appearance="outline"  >
                 <mat-label>USER-NAME</mat-label>
-                <input matInput placeholder="enter your name">
+                <input matInput placeholder="enter your name" name="username" ngModel>
               </mat-form-field>
 
               <mat-form-field  appearance="outline">
                 <mat-label>PASSWORD</mat-label>
-                <input matInput type="password" placeholder="enter your password">
+                <input matInput type="password" placeholder="enter your password"  name="password" ngModel>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
                 <mat-label>DATE OF BIRTH</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker"  name="dob" ngModel>
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -29,15 +29,15 @@
 
               <mat-form-field  appearance="outline">
                 <mat-label>E-MAIL</mat-label>
-                <input matInput  placeholder="enter your email">
+                <input matInput  placeholder="enter your email"  name="email" ngModel>
               </mat-form-field>
 
               <mat-form-field  appearance="outline">
                 <mat-label>PHONE</mat-label>
-                <input matInput type="number"  placeholder="enter your contact number">
+                <input matInput type="number"  placeholder="enter your contact number"  name="contact" ngModel>
               </mat-form-field>
 
-              <button mat-raised-button color="primary" class="button">REGISTER</button>
+              <button mat-raised-button color="primary" class="button" (click)="register(registerFrom)">REGISTER</button>
 
               <P>Already have an account?<a href="" style="color: red; font-weight: bold;" routerLink=""> login</a></P>
 
