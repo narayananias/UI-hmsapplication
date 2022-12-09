@@ -4,19 +4,31 @@
    
     <mat-card fxFlex="25" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
         <mat-toolbar  color="primary" style="justify-content:center; ">LOGIN PAGE</mat-toolbar>
-        <form fxLayoutAlign="strecth" fxLayout="column" class="login-form">
+        <form [formGroup]="loginform" #LoginInformation (ngSubmit)="Login()" fxLayoutAlign="strecth" fxLayout="column" class="login-form">
 
-            <mat-form-field  appearance="outline"  >
+            <mat-form-field  appearance="outline" style="margin-bottom: -1.25em" >
                 <mat-label>USER-NAME</mat-label>
-                <input matInput placeholder="enter your name">
+                <input matInput placeholder="enter your name" formControlName="username">
               </mat-form-field>
+              <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.username.touched || submitted) && myForm.username.errors?.['required']">
+                *user name mandatory
+              </span>
+              <br>
 
-              <mat-form-field  appearance="outline">
+              <mat-form-field  appearance="outline" style="margin-bottom: -1.25em">
                 <mat-label>PASSWORD</mat-label>
-                <input matInput type="password" placeholder="enter your password">
+                <input matInput type="password" placeholder="enter your password" formControlName="password">
               </mat-form-field>
+              <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.password.touched || submitted) && myForm.password.errors?.['required']">
+                *password mandatory
+             </span>
+             <br>
 
-              <button mat-raised-button color="primary" class="button">LOGIN</button>
+            <span style="color: red; font-style: italic; margin-left: 10px;" *ngIf="submitted && isLoginFailed">
+              {{errorMessage}}
+           </span>
+             <br>
+              <button mat-raised-button color="primary" class="button" type="submit">LOGIN</button>
 
               <P>Create new account? please <a href="" style="color: red; font-weight: bold;" routerLink="register">register</a></P>
 

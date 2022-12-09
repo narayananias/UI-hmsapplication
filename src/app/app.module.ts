@@ -15,15 +15,23 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatRadioModule} from '@angular/material/radio';
+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
+import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DoctorDashboardComponent,
+    ConfirmdialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatDialogModule
+    
     
   ],
   providers: [],
