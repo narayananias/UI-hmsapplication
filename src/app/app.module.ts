@@ -15,12 +15,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
 import {MatListModule} from '@angular/material/list';
-import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatRadioModule} from '@angular/material/radio';
@@ -28,7 +24,6 @@ import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.co
 import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
->>>>>>> 287d90326b26f8f2772273287df4a0a7bba3aa3d
 
 
 
@@ -37,12 +32,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-<<<<<<< HEAD
-    AdminDashboardComponent
-=======
+    AdminDashboardComponent,
     DoctorDashboardComponent,
     ConfirmdialogComponent
->>>>>>> 287d90326b26f8f2772273287df4a0a7bba3aa3d
   ],
   imports: [
     BrowserModule,
@@ -59,14 +51,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDatepickerModule,
     MatIconModule,
     MatNativeDateModule,
-<<<<<<< HEAD
-    MatListModule
-=======
+    MatListModule,
     MatRadioModule,
     ReactiveFormsModule,
     MatDialogModule
     
->>>>>>> 287d90326b26f8f2772273287df4a0a7bba3aa3d
     
   ],
   providers: [],

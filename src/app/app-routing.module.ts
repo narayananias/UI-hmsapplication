@@ -10,12 +10,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 const routes: Routes = [
   {path :'',component:LoginComponent},
   {path :'register',component :RegisterComponent},
-<<<<<<< HEAD
-  {path :'admindashboard',component :AdminDashboardComponent}
-=======
+  {path :'admindashboard',component :AdminDashboardComponent},
   {path :'doctor-dashboard',component :DoctorDashboardComponent}
 
->>>>>>> 287d90326b26f8f2772273287df4a0a7bba3aa3d
 
 ];
 
