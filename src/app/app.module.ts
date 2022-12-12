@@ -16,14 +16,18 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatListModule
     
   ],
   providers: [],
