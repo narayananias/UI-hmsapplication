@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { LoginDetail } from '../models/LoginDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +11,21 @@ import { NgForm } from '@angular/forms';
 
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router : Router) { }
 
 
 public registration(registerForm:NgForm){
-
-console.log(registerForm.value)
-
-let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post('http://localhost:8080/user/register', registerForm.value)
+this.http.post('http://localhost:8080/user/register', registerForm.value)
       .subscribe(res => {
          console.log('inside postmehtod of sub.function', res);//only objects
       })
 }
 
+
+login(loginDetails:LoginDetail){
+ return this.http.post('http://localhost:8080/user/login', loginDetails);
+      
+  }
   
 }
+

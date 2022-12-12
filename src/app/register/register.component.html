@@ -1,47 +1,77 @@
-
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
 
-   
-    <mat-card fxFlex="25" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-        <mat-toolbar  color="primary" style="justify-content:center; ">REGISTER PAGE</mat-toolbar>
-        <form fxLayoutAlign="strecth" fxLayout="column" class="login-form" #registerFrom="ngForm">
 
-            <mat-form-field  appearance="outline"  >
-                <mat-label>USER-NAME</mat-label>
-                <input matInput placeholder="enter your name" name="username" ngModel>
-              </mat-form-field>
+  <mat-card fxFlex="25" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+    <mat-toolbar color="primary" style="justify-content:center; ">REGISTER PAGE</mat-toolbar>
 
-              <mat-form-field  appearance="outline">
-                <mat-label>PASSWORD</mat-label>
-                <input matInput type="password" placeholder="enter your password"  name="password" ngModel>
-              </mat-form-field>
+    <form [formGroup]="registerForm" #registerFrom (ngSubmit)="onSubmit()" fxLayoutAlign="strecth" fxLayout="column" class="login-form" >
 
-              <mat-form-field appearance="outline">
-                <mat-label>DATE OF BIRTH</mat-label>
-                <input matInput [matDatepicker]="picker"  name="dob" ngModel>
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-              <br>
-              
-              
+        <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+          <mat-label>USER-NAME</mat-label>
+          <input matInput placeholder="enter your name" name="username" formControlName="username">
+        </mat-form-field>
+        <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.username.touched || submitted) && myForm.username.errors?.['required']">
+          *user name mandatory
+        </span>
+        <br>
 
-              <mat-form-field  appearance="outline">
-                <mat-label>E-MAIL</mat-label>
-                <input matInput  placeholder="enter your email"  name="email" ngModel>
-              </mat-form-field>
 
-              <mat-form-field  appearance="outline">
-                <mat-label>PHONE</mat-label>
-                <input matInput type="number"  placeholder="enter your contact number"  name="contact" ngModel>
-              </mat-form-field>
+        <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+          <mat-label>PASSWORD</mat-label>
+          <input matInput type="password" placeholder="enter your password" name="password" formControlName="password">
+        </mat-form-field>
+        <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.password.touched || submitted) && myForm.password.errors?.['required']">
+          *password mandatory
+       </span>
+       <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.password.touched || submitted) && myForm.password.errors?.['pattern']">
+        *min.8 values.[A-Z][a-z][0-9][@#$%^&*]
+       </span>
+        <br>
 
-              <button mat-raised-button color="primary" class="button" (click)="register(registerFrom)">REGISTER</button>
 
-              <P>Already have an account?<a href="" style="color: red; font-weight: bold;" routerLink=""> login</a></P>
+        <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+          <mat-label>E-MAIL</mat-label>
+          <input matInput placeholder="enter your email" name="email" formControlName="email">
+        </mat-form-field>
+        <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.email.touched || submitted) && myForm.email.errors?.['required']">
+          *enter valid email
+        </span>
+        <br>
 
-        </form>
-    </mat-card>
+
+        <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+          <mat-label>PHONE</mat-label>
+          <input matInput type="number" placeholder="enter your number" name="contact" formControlName="phone" maxlength="10">
+        </mat-form-field>
+        <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.phone.touched || submitted) && myForm.phone.errors?.['required'] || myForm.phone.errors?.['pattern']">
+          *enter valid contact number
+        </span>
+        <br>    
+
+
+        <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+          <mat-label>DATE OF BIRTH</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" name="dob" formControlName="dob">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <span style="color: red; font-size:small; font-style: italic; margin-left: 10px;" *ngIf="(myForm.dob.touched || submitted) && myForm.dob.errors?.['required']">
+          *choose valid date
+  </span>
+
+
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button  value="male" [color]="color" >Male</mat-radio-button>
+          <mat-radio-button  value="female" [color]="color">Female</mat-radio-button>
+        </mat-radio-group>
+       
+    </form>
+    <div class="button">
+      <button mat-raised-button color="primary"  type="submit" (click)="onSubmit()">REGISTER</button>
       
+      <button mat-raised-button color="warn" (click)="clearForm()" >CANCEL</button>
+  </div>
+      <P style="margin-left: 20px; font-family: sans-serif;">Already have an account?<a href="" style="color: red; font-weight: bold;" routerLink=""> login</a></P>
+  </mat-card>
+
 </div>
